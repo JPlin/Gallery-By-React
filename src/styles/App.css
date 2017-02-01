@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 226481 */
+  src: url('//at.alicdn.com/t/font_vp6cay1shrveipb9.eot');
+  src: url('//at.alicdn.com/t/font_vp6cay1shrveipb9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_vp6cay1shrveipb9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_vp6cay1shrveipb9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_vp6cay1shrveipb9.svg#iconfont') format('svg');
+}
+
 /* Base Application Styles */
-html , body {
+html , body ,app{
   width: 100%;
   height: 100%;
   color: #fff;
@@ -10,14 +19,14 @@ html , body {
   width: 100%;
   height: 100%;
 }
-.index img {
+.app img {
   margin: 40px auto;
   border-radius: 4px;
   background: #fff;
   display: block;
 }
 
-.index .notice {
+.app .notice {
   margin: 20px auto;
   padding: 15px 0;
   text-align: center;
@@ -30,7 +39,7 @@ html , body {
 .stage{
   position: relative;
   width: 100%;
-  height : 680px;
+  height : 600px;
 }
 /* stage -- end */
 /*image -- start*/
@@ -41,8 +50,49 @@ html , body {
   height:100%;
   overflow: hidden;
   background-color: #ddd;
-
+        perspective: 18000px;
 }
+.img-figure{
+  position:absolute;
+  box-shadow:0px 0px 7px 2px #cb4042;
+  width:320px;
+  padding: 0 0 10px 0;
+  margin: 0;
+  background-color:#fff;
+  box-sizing: border-box;
+
+  cursor: pointer;
+      transform-origin: 0 50% 0;
+      transform-style: preserve-3d;
+
+      transition:transform .6s ease-in-out,left .6s ease-in-out,top .6s ease-in-out;
+}
+.img-figure>img{
+  width: 100%;
+  //height:300px;
+}
+.img-figure>figcaption{
+  text-align: center;
+}
+.img-title{
+  margin: 5px 0 0 0 ;
+  color: #a7a0a2;
+  font-size:14px;
+}
+ .img-back{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #666;
+        transform:rotateY(180deg) translateZ(1px);
+        background: #fff;
+        backface-visibility: hidden;
+      }
 /* image -- end */
 
 /* controller -- start */
@@ -55,4 +105,37 @@ html , body {
   width: 100%;
   text-align:center;
 }
+
+.is-inverse{
+        transform:translate(320px) rotateY(180deg) scale(1.25);
+      }
 /* controller -- start */
+.controller-nav{
+  position:absolute;
+  left:0;
+  bottom:30px;
+  z-index:101;
+
+  width:100%;
+  text-align:center;
+}
+.controller-unit{
+  display:inline-block;
+  width:18px;
+  height:18px;
+  margin:0 8px;
+  opacity:0.7;
+  text-align:center;
+  cursor:pointer;
+  background-color:#000000;
+  border-radius:6px;
+  transition: transform .6s ease-in-out,background-color .3s;
+}
+.controller-is-center{
+   background-color:#cb4042;
+  transform:rotate(180deg) scale(1.5);
+}
+.controller-is-inverse{
+    transform:rotate(180deg) scale(1.8);
+    opacity:1;
+}
